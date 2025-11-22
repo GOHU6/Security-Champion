@@ -2,7 +2,7 @@ package com.company.expense.secure_expense.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.company.expense.secure_expense.model.ExpenseEntity;
+import com.company.expense.secure_expense.model.entity.ExpenseEntity;
 
 public interface ExpenseRepository extends JpaRepository<ExpenseEntity,Long>{
     

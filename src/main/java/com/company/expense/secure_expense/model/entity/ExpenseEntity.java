@@ -1,12 +1,15 @@
-package com.company.expense.secure_expense.model;
+package com.company.expense.secure_expense.model.entity;
 
 import java.time.LocalDate;
+
+import com.company.expense.secure_expense.model.enumeration.ExpenseTypeEnum;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -27,7 +30,7 @@ public class ExpenseEntity {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private ExpenseType expenseType;
+    private ExpenseTypeEnum expenseType;
 
     private LocalDate expenseDate;
 

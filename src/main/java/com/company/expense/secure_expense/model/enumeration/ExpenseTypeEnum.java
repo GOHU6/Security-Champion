@@ -1,6 +1,6 @@
-package com.company.expense.secure_expense.model;
+package com.company.expense.secure_expense.model.enumeration;
 
-public enum ExpenseType {
+public enum ExpenseTypeEnum {
     BREAKFAST_SOLO,
     BREAKFAST_GROUP,
     LUNCH_SOLO,
