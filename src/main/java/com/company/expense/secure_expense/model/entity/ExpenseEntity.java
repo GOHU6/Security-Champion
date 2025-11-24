@@ -2,8 +2,10 @@ package com.company.expense.secure_expense.model.entity;
 
 import java.time.LocalDate;
 
-import com.company.expense.secure_expense.model.enumeration.ExpenseTypeEnum;
+import com.company.expense.secure_expense.model.enumeration.ExpenseCategory;
 
+import jakarta.annotation.Nullable;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -30,9 +32,12 @@ public class ExpenseEntity {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private ExpenseTypeEnum expenseType;
-
+    @Column(nullable = false)
+    private ExpenseCategory expenseCategory;
+    
+    @Column(nullable = false)
     private LocalDate expenseDate;
 
+    @Column(nullable = false)
     private Double expenseAmount;
 }

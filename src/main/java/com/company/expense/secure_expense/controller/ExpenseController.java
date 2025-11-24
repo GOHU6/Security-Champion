@@ -2,6 +2,10 @@ package com.company.expense.secure_expense.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +22,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/expenses")
+@Validated
 public class ExpenseController {
     
     private ExpenseService expenseService;
@@ -37,13 +42,13 @@ public class ExpenseController {
     }
 
     @PostMapping
-    public ExpenseDTO create(@Valid @RequestBody ExpenseDTO entity){
-        return expenseService.save(entity);
+    public ResponseEntity<ExpenseDTO> create(@Valid @RequestBody ExpenseDTO dto){
+        return ResponseEntity.status(HttpStatus.CREATED).body(expenseService.save(dto));
     }
     
     @PutMapping("/{id}")
-    public ExpenseDTO update(@PathVariable Long id, @Valid @RequestBody ExpenseDTO entity){
-        return expenseService.update(id, entity);
+    public ResponseEntity<ExpenseDTO> update(@PathVariable Long id, @Valid @RequestBody ExpenseDTO dto){
+       return ResponseEntity.ok(expenseService.update(id, dto));
     }
 
     @DeleteMapping("/{id}")

@@ -2,7 +2,7 @@ package com.company.expense.secure_expense.model.dto;
 
 import java.time.LocalDate;
 
-import com.company.expense.secure_expense.model.enumeration.ExpenseTypeEnum;
+import com.company.expense.secure_expense.model.enumeration.ExpenseCategory;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -21,7 +21,7 @@ public class ExpenseDTO {
     private Long id;
 
     @NotNull(message = "Expense type is required")
-    private ExpenseTypeEnum expenseType;
+    private ExpenseCategory expenseCategory;
 
     @NotNull(message = "Expense Date is required")
     @PastOrPresent(message = "Expense Date should be in the past or today")
